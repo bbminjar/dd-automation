@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:lightgrey">
+
+<div style="background-color:black; color:white; padding:20px;">
+    <center><h1>Minjar Datadog</h1></center>
+
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+
+
+<!-- Device input -->
+<div  id=field align=center>
+
+<br><br>
+
+<p> Enter the information below </p>
+
+<form method="post" action="/">
+    <!--<fieldset>-->
+        <center>  <input type="text" class="tb10" placeholder="Enter the Customer Name" size="60" style="width:400px;height:25px" name="customer_name" required> </center>
+        <br>
+        <center> <input type="text" class="tb10" placeholder="Enter the API Key" size="60" style="width:400px;height:25px"  name="api_key" required> </center>
+        <br>
+        <center> <input type="text" class="tb10" placeholder="Enter the APP Key" size="60" style="width:400px;height:25px" name="app_key" required></center>
+        <br>
+        <center><input type="text" class="tb10" placeholder="Enter the Access Key" size="60" style="width:400px;height:25px" name="access_key"></center>
+        <br>
+        <center><input type="text" name="secret_key" class="tb10" placeholder="Enter the Secret Key" size="60" style="width:400px;height:25px"></center>
+        <br>
+        <center><input type="text" class="tb10" placeholder="Enter the Support e-mail id" size="60" style="width:400px;height:25px" name="email_id" required></center>
+        <br>
+        <center ><input type="text" class="tb10" placeholder="Enter the slack channels" size="60" style="width:400px;height:25px" name="slack_channels" required></center>
+        <br>
+        <center><input type="text" class="tb10" placeholder="Enter Customer e-mail ID (if customer need to be notify)" size="60" style="width:400px;height:25px" name="customer_email"></center>
+        <br><br>
+        <p>Please choose options from here to add to monitoring list.</p>
+        <input type="checkbox" name="check_list" value="load">load<br>
+        <input type="checkbox" name="check_list" value="cpu utilization">cpu utilization<br>
+        <input type="checkbox" name="check_list" value="disk">disk<br>
+        <input type="checkbox" name="check_list" value="memory">memory<br>
+        <input type="checkbox" name="check_list" value="elb">elb<br>
+        <input type="checkbox" name="check_list" value="rds">rds<br>
+        <input type="submit" value="Submit">
+    <!--</fieldset>-->
+</form>
+
+<br><br>
+
+</div>
+
+<br>
+
+<br>
+
+
+<br><br>
+
+<br>
+
+</body>
+</html>

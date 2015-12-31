@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Minjar Datadog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+<body >
+<div class="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><a href="index.html">Minjar Datadog</a></h1>
+      <p></p>
+    </div>
+    <div id="topnav">
+      
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+</div>
+
+<style type="text/css">
+.tb10 {
+        background-image:url(images/form_bg.jpg);
+        background-repeat:repeat-x;
+        border:2px solid #bdc7d8;
+        width: 330px;
+        color:#333333;
+        
+        padding:3px;
+        margin-right:4px;
+        margin-bottom:8px;
+        font-family: Helvetica,FreeSans,"Liberation Sans",Helmet,Arial,sans-serif;
+           font-weight: 600;
+
+}
+</style>
+<style type="text/css">
+.field { padding: 20px 15px 10px 60px;
+position: relative;
+         font-size:24px;
+         font-weight:lighter;
+         font-family: Helvetica,FreeSans,"Liberation Sans",Helmet,Arial,sans-serif;
+         background-color: rgba(5,4,2,0.2);
+       
+      opacity:0.9;   
+         color:#000;
+             height: 830px;
+    width: 500px;
+          }
+</style>
+<style type="text/css">
+.basic-slide {
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 70px; // Arbitrary.
+  transition: all .3s ease-in-out;
+  
+  &::-webkit-input-placeholder {
+    color: #efefef;
+    text-indent: 0;
+    font-weight: 350;
+  }
+
+  + label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    text-shadow: 0 1px 0 rgba(19,74,70,.4);
+    background: #7AB893;
+    transition: all .3s ease-in-out;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+.basic-slide:focus,
+.basic-slide:active {
+  color: #377D6A;
+  text-indent: 0;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  
+  &::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  + label {
+    transform: translateX(-100%);
+  }
+}
+
+</style>
+
+
+<style type="text/css">
+.ac input[type="checkbox"] {
+    opacity: 0;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 100;
+}
+</style>
+
+<style type="text/css">
+.animi {
+    font-weight: bold;
+    border-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    margin: 0;
+    overflow: visible;
+    text-decoration: none !important;
+    width: auto;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 15px;
+    height: 34px;
+    line-height: 32px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF287BBC', endColorstr='#FF23639A');
+    background-image: -webkit-linear-gradient(top, #1a1a1a 0%,#1a1a1a 100%);
+    background-image: -moz-linear-gradient(top, #1a1a1a 0%,#1a1a1a 100%);
+    background-image: -o-linear-gradient(top, #1a1a1a 0%,#1a1a1a 100%);
+    background-image: linear-gradient(top, #1a1a1a 0%,#1a1a1a 100%);
+    white-space: nowrap;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    vertical-align: middle;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 43%;
+}
+</style>
+
+
+<div  id=field align=center>
+ 
+                <!-- Device input -->
+                <br><br><br>
+           <div  class=field>
+                <p> Enter the information below </p>
+                <form method = "post" action="/index">
+
+                    <center> <input type="text" class="basic-slide" placeholder="Enter the Customer Name" size="30" style="width:350px;height:20px"name="customer_name" required> </center>
+             <br>
+             <br>
+                <input type="text" class="basic-slide" placeholder="Enter the API Key"size="30" style="width:350px;height:20px" name="api_key" required>
+                <br>
+                 <br>
+              
+                <input type="text" class="basic-slide" placeholder="Enter the APP Key"size="30" style="width:350px;height:20px"name="app_key" required></center>
+                <br>
+                <br>
+                <input type="text" class="basic-slide" placeholder="Enter the Access Key"size="30" style="width:350px;height:20px"name="access_key" required>
+                <br> <br>
+             
+                <input type="text" class="basic-slide"placeholder="Enter the Secret Key" size="30" style="width:350px;height:20px"name="secret_key" required>
+                <br><br>
+                
+               <input type="text" class="basic-slide"placeholder="Enter the Support e-mail id (if customer need to be notify)" size="30" style="width:350px;height:20px"name="email_id" required>
+<br><br>
+              <input type="text" class="basic-slide"placeholder="Enter the slack channels" size="30" style="width:350px;height:20px"name="slack_channels" required>
+<br><br>
+                <input type="text" class="basic-slide"placeholder="Enter Customer e-mail ID (if customer need to be notify)" size="30" style="width:350px;height:20px"name="customer_email" required>
+<br><br>
+                <p>Select the Metrices to monitor:</p>
+
+<input type="checkbox" class="ac" name="check_list" value="load"style="zoom:1.5">Load<br>
+<input type="checkbox" class="ac" name="check_list" value="cpu utilization"style="zoom:1.5">CPU Utilization<br>
+<input type="checkbox" class="ac" name="check_list" value="disk"style="zoom:1.5">Disk<br>
+<input type="checkbox" class="ac" name="check_list" value="memory"style="zoom:1.5">Memory<br><br>
+</br>
+<input type="submit" name="Submit" value="Submit" class="animi" id="animi">
+
+</form>
+</body>
+</html>
