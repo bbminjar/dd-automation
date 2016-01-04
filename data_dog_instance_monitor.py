@@ -2,8 +2,10 @@ from datadog import initialize, api
 import json
 from boto.ec2.connection import EC2Connection
 
-def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, access_key, secret_key, support_mail, slack_channels, customer_email_id, cpu_threshold, disk_threshold, memory_threshold, alerts_list):
+def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, access_key, secret_key, support_mail, slack_channels, customer_email_id,
+                                             cpu_threshold, disk_threshold, memory_threshold, alerts_list):
 
+    print "memory_threshold " + memory_threshold
     try:
         conn = EC2Connection(aws_access_key_id=str(access_key),
                              aws_secret_access_key=str(secret_key))
@@ -52,32 +54,37 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                                        name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "High system load on Microsoft SERVER",
                                        message="Team, High system load on this server. Please take a look into this. @cloudops-business@minjar.com",
                                        options=options,tags=tags),
+
+            print 'memory' in alerts_list
 #Memory
             if 'memory' in alerts_list:
+                print "1"
+                print memory_threshold
                 api.Monitor.create(type="metric alert",
                            query="min(last_5m):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
                            name="["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
-                           message="Team, High system memory is high on this server. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
+                           message="Team, High system memory is high on this server. Please take a look into this." + "@"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
                            tags=tags,
                            options=options2),
                 api.Monitor.create(type="metric alert",
-                           query="min(last_5m):avg:system.mem.pct_usable{region:ap-southeast-1} by {host,name,region} >"+str(memory_threshold),
+                           query="min(last_5m):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
                            name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
                            message="Team, High system memory is high on this server. Please take a look into this. @"+str(support_mail),
                            tags=tags,
                            options=options),
                 api.Monitor.create(type="metric alert",
-                           query="min(last_30m):avg:system.mem.pct_usable{region:ap-southeast-1} by {host,name,region} >"+str(memory_threshold),
+                           query="min(last_30m):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
                            name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
                            message="Team, High system memory is high on this server. Please take a look into this. @cloudops-business@minjar.com ",
                            tags=tags,
                            options=options),
                 api.Monitor.create(type="metric alert",
-                           query="min(last_1h):avg:system.mem.pct_usable{region:ap-southeast-1} by {host,name,region} >"+str(memory_threshold),
+                           query="min(last_1h):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
                            name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
                            message="Team, High system memory is high on this server. Please take a look into this. @cloudops-business@minjar.com ",
                            tags=tags,
                            options=options),
+                print "33333333333333333"
     #Disk
             if 'disk' in alerts_list:
                 api.Monitor.create(type="metric alert",
@@ -134,7 +141,8 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
 
         # print instance
         data = json.dumps(api.Monitor.get_all(),sort_keys=True,indent=4, separators=(',', ': '))
-        print (data)
+        # print (data)
+        print "5555"
         return True
     except Exception as e:
         print e

@@ -20,7 +20,9 @@ class Boto3Connecton(object):
         return rds_conn
 
 
-def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, access_key, secret_key, support_mail, slack_channels, customer_email_id, rds_cpuutilization, rds_free_storage_space, alerts_list):
+def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, access_key, secret_key, support_mail, slack_channels, customer_email_id,
+                                             rds_cpuutilization, rds_free_storage_space, alerts_list):
+
 
     region_list = ["us-east-1","us-west-2"]
     db_instance_class_set = set()
@@ -48,7 +50,7 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
         for db_instance_class in db_instance_class_set:
             if db_instance_class in dictVar:
                 m = dictVar[db_instance_class]['memory']
-
+            try:
                 if 'rds' in alerts_list:
     #Freeable Memory
                     print json.dumps(api.Monitor.create(type="metric alert",
@@ -75,57 +77,60 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
         #                    message="Team,RDS Usable Memory is low on this RDS. Please take a look into this. @cloudops-business@minjar.com",
         #                    tags=tags,
         #                    options=options)),
-    #RDS CPU Utilization
+#RDS CPU Utilization
     
-    print json.dumps(api.Monitor.create(type="metric alert",
-               query="min(last_5m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpuutilization),
-               name="["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
-               message="Team,RDS CPU utilization high on this RDS. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
-               tags=tags,
-               options=options2)),
-        # print json.dumps(api.Monitor.create(type="metric alert",
-        #                query="min(last_5m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpu_threshold),
-        #                name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
-        #                message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @"+str(support_mail),
-        #                tags=tags,
-        #                options=options)),
-        # print json.dumps(api.Monitor.create(type="metric alert",
-        #                query="min(last_30m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpu_threshold),
-        #                name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
-        #                message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
-        #                tags=tags,
-        #                options=options)),
-        # print json.dumps(api.Monitor.create(type="metric alert",
-        #                query="min(last_1h):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpu_threshold),
-        #                name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
-        #                message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
-        #                tags=tags,
-        #                options=options)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_5m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpuutilization),
+                       name="["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
+                       message="Team,RDS CPU utilization high on this RDS. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
+                       tags=tags,
+                       options=options2)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_5m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpuutilization),
+                       name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
+                       message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @"+str(support_mail),
+                       tags=tags,
+                       options=options)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_30m):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpuutilization),
+                       name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
+                       message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
+                       tags=tags,
+                       options=options)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_1h):avg:aws.rds.cpuutilization{*} by {hostname,region} >"+str(rds_cpuutilization),
+                       name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS CPU utilization high",
+                       message="Team,RDS CPU utilization high on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
+                       tags=tags,
+                       options=options)),
 
-    #RDS-Storage
+#RDS-Storage
 
-    print json.dumps(api.Monitor.create(type="metric alert",
-               query="min(last_5m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
-               name="["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
-               message="Team,RDS Storage space is low on this RDS. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
-               tags=tags,
-               options=options2)),
-    print json.dumps(api.Monitor.create(type="metric alert",
-                   query="min(last_5m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
-                   name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
-                   message="Team,RDS Storage space is low on this RDS. Please take a look into this. @"+str(support_mail),
-                   tags=tags,
-                   options=options)),
-    print json.dumps(api.Monitor.create(type="metric alert",
-                   query="min(last_30m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
-                   name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
-                   message="Team,RDS Storage space is low on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
-                   tags=tags,
-                   options=options)),
-    print json.dumps(api.Monitor.create(type="metric alert",
-                   query="min(last_1h):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
-                   name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
-                   message="Team,RDS Storage space is low on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
-                   tags=tags,
-                   options=options)),
-    return True
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_5m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
+                       name="["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
+                       message="Team,RDS Storage space is low on this RDS. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
+                       tags=tags,
+                       options=options2)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_5m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
+                       name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
+                       message="Team,RDS Storage space is low on this RDS. Please take a look into this. @"+str(support_mail),
+                       tags=tags,
+                       options=options)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_30m):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
+                       name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
+                       message="Team,RDS Storage space is low on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
+                       tags=tags,
+                       options=options)),
+                print json.dumps(api.Monitor.create(type="metric alert",
+                       query="min(last_1h):avg:aws.rds.free_storage_space{*} by {hostname,region} >"+str(rds_free_storage_space),
+                       name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "RDS Storage space is low",
+                       message="Team,RDS Storage space is low on this RDS. Please take a look into this. @cloudops-business@minjar.com ",
+                       tags=tags,
+                       options=options)),
+                return True
+            except Exception as e:
+                print e
+                return False
