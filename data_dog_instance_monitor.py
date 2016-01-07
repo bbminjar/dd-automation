@@ -44,22 +44,9 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                                        name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "High system load on Microsoft SERVER",
                                        message="Team, High system load on this server. Please take a look into this. " + "@" +str(support_mail),
                                        options=options,tags=tags),
-                    api.Monitor.create(type="metric alert",
-                                       query="min(last_30m):avg:system.load.15{instance-type:" + str(instance) + "} by {host,name,region}>"+str(l),
-                                       name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "High system load on Microsoft SERVER",
-                                       message="Team, High system load on this server. Please take a look into this. @cloudops-business@minjar.com",
-                                       options=options,tags=tags)
-                    api.Monitor.create(type="metric alert",
-                                       query="min(last_1h):avg:system.load.15{instance-type:" + str(instance) + "} by {host,name,region}>"+str(l),
-                                       name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "High system load on Microsoft SERVER",
-                                       message="Team, High system load on this server. Please take a look into this. @cloudops-business@minjar.com",
-                                       options=options,tags=tags),
 
-            print 'memory' in alerts_list
 #Memory
             if 'memory' in alerts_list:
-                print "1"
-                print memory_threshold
                 api.Monitor.create(type="metric alert",
                            query="min(last_5m):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
                            name="["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
@@ -72,20 +59,7 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                            message="Team, High system memory is high on this server. Please take a look into this. @"+str(support_mail),
                            tags=tags,
                            options=options),
-                api.Monitor.create(type="metric alert",
-                           query="min(last_30m):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
-                           name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
-                           message="Team, High system memory is high on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                           tags=tags,
-                           options=options),
-                api.Monitor.create(type="metric alert",
-                           query="min(last_1h):avg:system.mem.pct_usable{*} by {host,name,region} >"+str(memory_threshold),
-                           name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "High memory is on high on this server",
-                           message="Team, High system memory is high on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                           tags=tags,
-                           options=options),
-                print "33333333333333333"
-    #Disk
+#Disk
             if 'disk' in alerts_list:
                 api.Monitor.create(type="metric alert",
                            query="min(last_5m):avg:system.disk.in_use{region:ap-southeast-1} by {device,host,name,region} >"+str(disk_threshold),
@@ -99,20 +73,7 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                            message="Team,Root partition is getting full on this server. Please take a look into this. @"+str(support_mail),
                            tags=tags,
                            options=options),
-                api.Monitor.create(type="metric alert",
-                           query="min(last_30m):avg:system.disk.in_use{region:ap-southeast-1} by {device,host,name,region} >"+str(disk_threshold),
-                           name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "Root partition is getting full on this server",
-                           message="Team,Root partition is getting full on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                           tags=tags,
-                           options=options),
-                api.Monitor.create(type="metric alert",
-                           query="min(last_1h):avg:system.disk.in_use{region:ap-southeast-1} by {device,host,name,region} >"+str(disk_threshold),
-                           name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "Root partition is getting full on this server",
-                           message="Team,Root partition is getting full on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                           tags=tags,
-                           options=options),
-
-    #EC2 CPU
+#EC2 CPU
             if 'cpu utilization' in alerts_list:
                 api.Monitor.create(type="metric alert",
                            query="min(last_5m):avg:aws.ec2.cpuutilization{region:ap-southeast-1} by {host,name,region} >"+str(cpu_threshold),
@@ -120,24 +81,12 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                            message="Team,CPU utilization high on this server. Please take a look into this." + " @"+"cloudops@minjar.com " + str(slack_channels) + " @"+str(customer_email_id) ,
                            tags=tags,
                            options=options2),
-                # api.Monitor.create(type="metric alert",
-                #            query="min(last_5m):avg:aws.ec2.cpuutilization{region:ap-southeast-1} by {host,name,region} >"+str(cpu_threshold),
-                #            name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "CPU utilization high on this server",
-                #            message="Team,CPU utilization high on this server. Please take a look into this. @"+str(support_mail),
-                #            tags=tags,
-                #            options=options),
-                # api.Monitor.create(type="metric alert",
-                #            query="min(last_30m):avg:aws.ec2.cpuutilization{region:ap-southeast-1} by {host,name,region} >"+str(cpu_threshold),
-                #            name="[Escalation-TL]" + " - " + "["+str(customer_name)+"]" + " - " + "CPU utilization high on this server",
-                #            message="Team,CPU utilization high on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                #            tags=tags,
-                #            options=options),
-                # api.Monitor.create(type="metric alert",
-                #            query="min(last_1h):avg:aws.ec2.cpuutilization{region:ap-southeast-1} by {host,name,region} >"+str(cpu_threshold),
-                #            name="[Escalation]" + " - " + "["+str(customer_name)+"]" + " - " + "CPU utilization high on this server",
-                #            message="Team,CPU utilization high on this server. Please take a look into this. @cloudops-business@minjar.com ",
-                #            tags=tags,
-                #            options=options),
+                api.Monitor.create(type="metric alert",
+                           query="min(last_5m):avg:aws.ec2.cpuutilization{region:ap-southeast-1} by {host,name,region} >"+str(cpu_threshold),
+                           name="[Ticket]" + " - " + "["+str(customer_name)+"]" + " - " + "CPU utilization high on this server",
+                           message="Team,CPU utilization high on this server. Please take a look into this. @"+str(support_mail),
+                           tags=tags,
+                           options=options),
 
         # print instance
         data = json.dumps(api.Monitor.get_all(),sort_keys=True,indent=4, separators=(',', ': '))

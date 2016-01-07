@@ -107,12 +107,12 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" required="required" placeholder="Enter the slack channels" name="slack_channels">
                                 </div>
-
+                             
                                 <div class="form-group">
                                     <input type="text" class="form-control" required="required" placeholder="Enter Customer e-mail ID (if customer need to be notify)" name="customer_email">
                                 </div>
 
-
+                               
                              </div>
 
                         </div>
@@ -133,7 +133,7 @@
                                 <div class="form-group">
 <label for="chkYes">
 <input type="checkbox" id="chkYes" name="check_list" class="checkbox-inline" style="zoom:1.5" value="cpu utilization" >CPU Utilization<br>
-
+                                
 </label>
 </div>
 <div id="dvPassport" style="display: none" >
@@ -145,7 +145,7 @@
 
 <div class="form-group">
 <label for="chkA">
- <input type="checkbox"  id="chkA" name="check_list" class="checkbox-inline" style="zoom:1.5" value="disk">Disk <br>
+ <input type="checkbox"  id="chkA" name="check_list" class="checkbox-inline" style="zoom:1.5" value="disk">Disk <br>                              
 </label>
 </div>
 <div id="dvA" style="display: none" >
@@ -155,22 +155,22 @@
 <div class="form-group">
 <label for="chkB">
 <input type="checkbox" id="chkB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="memory" >Memory<br>
-
+                                
 </label>
 </div>
 <div id="dvB" style="display: none">
     <input type="text" id="txtPassportNumber" class="form-control" name="memory_threshold"/>
 </div>
 
-
-
+                                
+                              
    <center> <h3> AWS </h3></center>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12" align = "left" display = "inline">
 <div class="form-group">
 <label for="rdsB">
 <input type="checkbox" id="rdsB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="rds" >RDS<br>
-
+                                
 </label>
 </div>
 <div id="rdsdv" style="display: none">
@@ -184,7 +184,7 @@
 <div class="form-group">
 <label for="elbB">
 <input type="checkbox" id="elbB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="elb" >ELB<br>
-
+                                
 </label>
 </div>
 <div id="elbdv" style="display: none">
@@ -193,9 +193,9 @@
 <div id="elbdvA" style="display: none">
     elb.httpcode_backend_5xx<input type="text" id="txtPassportNumber" class="form-control" name="elb_httpcode_backend_5xx" />
 </div>
-
+                               
                                 <br class="form-group">
-
+                                
                                 </div>
 
 
@@ -213,7 +213,7 @@
 
 
  <div class="col-lg-3 col-md-3">
-         <div class="div-trans text-center">
+         <div class="div-trans text-center">                        
  <h3> SERVICES </h3>
 
 
@@ -221,7 +221,7 @@
 <div class="form-group">
 
 <input type="checkbox" id="apachB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="apache" >APACHE TOMCAT<br>
-
+                                
 
 </div>
 <div id="apachdv" style="display: none">
@@ -236,7 +236,7 @@
 <div class="form-group">
 <label for="javaB">
 <input type="checkbox" id="javaB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="java" >JAVA<br>
-
+                                
 </label>
 </div>
 <div id="javadv" style="display: none">
@@ -248,7 +248,7 @@
 <div class="form-group">
 <label for="mqB">
 <input type="checkbox" id="mqB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="activemq" >ACTIVE MQ<br>
-
+                                
 </label>
 </div>
 <div id="mqdv" style="display: none">
@@ -266,7 +266,7 @@
 <div class="form-group">
 <label for="ngB">
 <input type="checkbox" id="ngB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="nginx" >NGINX<br>
-
+                                
 </label>
 </div>
 <div id="ngdv" style="display: none">
@@ -286,7 +286,7 @@
 <div class="form-group">
 <label for="mysqB">
 <input type="checkbox" id="mysqB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="mysql" >MYSQL<br>
-
+                                
 </label>
 </div>
 <div id="mysqdv" style="display: none">
@@ -301,7 +301,7 @@
 <div class="form-group">
 <label for="psB">
 <input type="checkbox" id="psB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="psql" >Postgre SQL<br>
-
+                                
 </label>
 </div>
 <div id="psdv" style="display: none">
@@ -313,7 +313,7 @@
 <div class="form-group">
 <label for="monB">
 <input type="checkbox" id="monB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="mongodb" >Mongo DB<br>
-
+                                
 </label>
 </div>
 <div id="mondv" style="display: none">
@@ -327,28 +327,28 @@
 </div>
 
 
+ 
+  <br>                            
+                               
 
-  <br>
-
-
-
-
-
+ 
+                                
+                               
                              </div>
 
 
                         </div>
 
                    </div>
-<center>
+<center> 
 <form class="form-group">
                                      <button type="submit" value="submit" class="btn btn-success btn-block btn-lg">SUBMIT</button>
+     
+
+                                
 
 
-
-
-
-                        </form></center>
+                        </form></center> 
                 </div>
 
             </div>
@@ -363,7 +363,7 @@
         $("input[name='check_list']").click(function () {
             if ($("#chkYes").is(":checked")) {
                 $("#dvPassport").show();
-            }
+            } 
             else {
                 $("#dvPassport").hide();
             }
@@ -391,14 +391,14 @@ $(function () {
         $("input[name='check_list']").click(function () {
             if ($("#rdsB").is(":checked")) {
                 $("#rdsdv").show();
-
+             
             }
 else {
                 $("#rdsdv").hide();
             }
           if ($("#rdsB").is(":checked")) {
                 $("#rdsdvA").show();
-
+             
             } else {
                 $("#rdsdvA").hide();
             }
@@ -487,7 +487,7 @@ $(function () {
 	else {
                 $("#ngdv").hide();
             }
-
+           
         });
     });
 $(function () {
@@ -524,7 +524,7 @@ $(function () {
 	else {
                 $("#psdvA").hide();
             }
-
+           
         });
     });
 $(function () {
@@ -579,7 +579,7 @@ if ($("#monB").is(":checked")) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-
+                   
                 </div>
             </div>
         </div>

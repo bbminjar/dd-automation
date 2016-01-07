@@ -626,7 +626,7 @@ blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
   font-size: 17.5px;
-  border-left: 5px solid #eee;
+  border-left: 5px solid #eee
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -753,6 +753,16 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.Box {
+    overflow-y: hidden;
+    max-height: 0;
+    -webkit-transition: max-height .4s ease;
+    -moz-transition: max-height .4s ease;
+    -ms-transition: max-height .4s ease;
+    -o-transition: max-height .4s ease;
+    transition: max-height .4s ease;
+}
+
 .row {
   margin-right: -15px;
   margin-left: -15px;
@@ -1077,6 +1087,7 @@ pre code {
     margin-left: 0;
   }
 }
+
 @media (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
@@ -1094,7 +1105,7 @@ pre code {
     width: 75%;
   }
   .col-md-8 {
-    width: 66.66666667%;
+    width:  66.66666667%%;
   }
   .col-md-7 {
     width: 58.33333333%;
@@ -1252,7 +1263,7 @@ pre code {
     width: 75%;
   }
   .col-lg-8 {
-    width: 66.66666667%;
+    width: 66.66666667%%;
   }
   .col-lg-7 {
     width: 58.33333333%;
