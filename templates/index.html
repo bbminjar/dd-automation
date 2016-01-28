@@ -10,6 +10,7 @@
         <![endif]-->
     <title>MINJAR DATADOG</title>
     <!--  Bootstrap Style -->
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.css') }}"  />
     <!--  Font-Awesome Style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/font-awesome.min.css') }}" />
@@ -29,10 +30,7 @@
 
 </head>
 <body>
-    <div id="pre-div">
-        <div id="loader">
-        </div>
-    </div>
+
     <!--/. PRELOADER END -->
     <div class="navbar navbar-default navbar-fixed-top move-me ">
         <div class="container">
@@ -61,29 +59,91 @@
                     </li>
 
 
-                    <li >
-                        <a href="#contact">DETAILS
-                        </a>
 
-                    </li>
                 </ul>
             </div>
 
         </div>
     </div>
+
+
+<style type="text/css">
+.scrollbar
+{
+
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+.force-overflow
+{
+
+}
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+/*
+ *  STYLE 1
+ */
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #555;
+}
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+</style>
+
+
+
+<style type="text/css">
+.absolute {
+    margin-right:50px;
+}
+</style>
+
+<style>
+  .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+</style>
+
+<iframe name="hiddenFrame" class="hide"></iframe>
+
+
     <!--./ NAV BAR END -->
+
     <div id="home" >
-        <div class="overlay">
+
+        <div class="overlay" >
             <div class="container">
+
+
+
+
+
+
+
                 <div class="row ">
 
+
+
                     <div class="col-lg-3 col-md-3">
-                        <div class="div-trans text-center">
+                        <div class="div-trans text-center scrollbar" id="style-1">
                             <h3>SIGN IN </h3>
 
-                            <div class="col-lg-12 col-md-12 col-sm-12" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 force-overflow" >
 
-                                <form method="post" action="/">
+                                <form method="post" action="" >
 
 
                                 <div class="form-group">
@@ -119,13 +179,13 @@
                     </div>
 
         <div class="col-lg-3 col-md-3">
-                        <div class="div-trans text-center">
+                        <div class="div-trans text-center scrollbar" id="style-1">
                             <h3> SYSTEM </h3>
 
                             <div class="col-lg-12 col-md-12 col-sm-12" align = "left" display = "inline">
 
 <div class="form-group">
-                                    <input type="checkbox" class="checkbox-inline" size="10"name="check_list" value="load"style="zoom:1.5">Load
+                                    <input type="checkbox" class="checkbox-inline" size="10"name="check_list" placeholder= "Value in count"  value="load"style="zoom:1.5"><b>Load</b>
                                 </div>
 
 
@@ -135,21 +195,23 @@
 <input type="checkbox" id="chkYes" name="check_list" class="checkbox-inline" style="zoom:1.5" value="cpu utilization" >CPU Utilization<br>
 
 </label>
-</div>
+
 <div id="dvPassport" style="display: none" >
-    <input type="text" id="txtPassportNumber" class="form-control" name="cpu_threshold"/>
+    <input type="text" id="txtPassportNumber" class="form-control" placeholder="Value in Percent" name="cpu_threshold"/>
 </div>
 <div id="dvPassport" style="display: none" >
     <input type="text" id="txtPassportNumber" class="form-control" name=""/>
+</div>
 </div>
 
 <div class="form-group">
 <label for="chkA">
  <input type="checkbox"  id="chkA" name="check_list" class="checkbox-inline" style="zoom:1.5" value="disk">Disk <br>
 </label>
-</div>
+
 <div id="dvA" style="display: none" >
-    <input type="text" id="txtPassportNumber" class="form-control"name="disk_threshold"/>
+    <input type="text" id="txtPassportNumber" class="form-control"name="disk_threshold" placeholder="Value in kb"/>
+</div>
 </div>
 
 <div class="form-group">
@@ -157,28 +219,30 @@
 <input type="checkbox" id="chkB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="memory" >Memory<br>
 
 </label>
-</div>
+
 <div id="dvB" style="display: none">
-    <input type="text" id="txtPassportNumber" class="form-control" name="memory_threshold"/>
+    <input type="text" id="txtPassportNumber" class="form-control" name="memory_threshold" placeholder="Value in Percent"/>
+</div>
 </div>
 
 
 
    <center> <h3> AWS </h3></center>
 
-                                <div class="col-lg-12 col-md-12 col-sm-12" align = "left" display = "inline">
+
 <div class="form-group">
 <label for="rdsB">
 <input type="checkbox" id="rdsB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="rds" >RDS<br>
 
 </label>
-</div>
+
 <div id="rdsdv" style="display: none">
-   rds_cpuutilization <input type="text" id="txtPassportNumber" class="form-control" name="rds_cpuutilization" />
+   rds_cpuutilization <input type="text" id="txtPassportNumber" class="form-control" name="rds_cpuutilization" placeholder= "Value in Percent"/>
 </div>
 
 <div id="rdsdvA" style="display: none">
-    rds_free_storage_space<input type="text" id="txtPassportNumber" class="form-control" name="rds_free_storage_space" />
+    rds_free_storage_space<input type="text" id="txtPassportNumber" class="form-control" name="rds_free_storage_space" placeholder="Value in kb" />
+</div>
 </div>
 
 <div class="form-group">
@@ -186,15 +250,16 @@
 <input type="checkbox" id="elbB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="elb" >ELB<br>
 
 </label>
-</div>
+
 <div id="elbdv" style="display: none">
-    elb.httpcode_backend_4xx<input type="text" id="txtPassportNumber" class="form-control" name="elb_httpcode_backend_4xx" />
+    elb.httpcode_backend_4xx<input type="text" id="txtPassportNumber" class="form-control" name="elb_httpcode_backend_4xx" placeholder="Value in count"/>
 </div>
 <div id="elbdvA" style="display: none">
-    elb.httpcode_backend_5xx<input type="text" id="txtPassportNumber" class="form-control" name="elb_httpcode_backend_5xx" />
+    elb.httpcode_backend_5xx<input type="text" id="txtPassportNumber" class="form-control" name="elb_httpcode_backend_5xx" placeholder="Value in count" />
+</div>
 </div>
 
-                                <br class="form-group">
+
 
                                 </div>
 
@@ -204,7 +269,7 @@
                              </div>
 
                         </div>
-                    </div>
+
 
 
 
@@ -213,64 +278,69 @@
 
 
  <div class="col-lg-3 col-md-3">
-         <div class="div-trans text-center">
+         <div class="div-trans text-center scrollbar" id="style-1">
  <h3> SERVICES </h3>
 
 
                                <div class="col-lg-12 col-md-12 col-sm-12" align = "left" display = "inline" >
 <div class="form-group">
+<label for="apachB">
 
 <input type="checkbox" id="apachB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="apache" >APACHE TOMCAT<br>
+</label>
 
 
-</div>
 <div id="apachdv" style="display: none">
-    apache.net.hits<input type="text" id="txtPassportNumber" class="form-control" name="apache_net_hits" />
+    apache.net.hits<input type="text" id="txtPassportNumber" class="form-control" name="apache_net_hits" placeholder="Value in Count"/>
 </div>
 <div id="apachdvA" style="display: none">
-    tomcat.threads.max<input type="text" id="txtPassportNumber" class="form-control" name="tomcat_threads_max" />
+    tomcat.threads.max<input type="text" id="txtPassportNumber" class="form-control" name="tomcat_threads_max" placeholder="Value in Count"/>
 </div>
 <div id="apachdvB" style="display: none">
-    tomcat.request_count<input type="text" id="txtPassportNumber" class="form-control" name="tomcat_request_count" />
+    tomcat.request_count<input type="text" id="txtPassportNumber" class="form-control" name="tomcat_request_count"placeholder="Value in Count" />
+</div>
 </div>
 <div class="form-group">
 <label for="javaB">
 <input type="checkbox" id="javaB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="java" >JAVA<br>
 
 </label>
-</div>
+
 <div id="javadv" style="display: none">
-    thread_count<input type="text" id="txtPassportNumber" class="form-control" name="thread_count" />
+    thread_count<input type="text" id="txtPassportNumber" class="form-control" name="thread_count" placeholder="Value in Count" />
 </div>
 <div id="javadvA" style="display: none">
-    heap_memory<input type="text" id="txtPassportNumber" class="form-control" name="heap_memory" />
+    heap_memory<input type="text" id="txtPassportNumber" class="form-control" name="heap_memory" placeholder="Value in Percentage" />
+</div>
 </div>
 <div class="form-group">
 <label for="mqB">
 <input type="checkbox" id="mqB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="activemq" >ACTIVE MQ<br>
 
 </label>
-</div>
+
 <div id="mqdv" style="display: none">
-    queue.consumer_count<input type="text" id="txtPassportNumber" class="form-control" name="queue_consumer_count" />
+    queue.consumer_count<input type="text" id="txtPassportNumber" class="form-control" name="queue_consumer_count" placeholder="Value in Count" />
 </div>
 <div id="mqdvA" style="display: none">
-    queue.producer_count<input type="text" id="txtPassportNumber" class="form-control" name="queue_producer_count" />
+    queue.producer_count<input type="text" id="txtPassportNumber" class="form-control" name="queue_producer_count" placeholder="Value in Count" />
 </div>
 <div id="mqdvB" style="display: none">
-    queue.memory_pct<input type="text" id="txtPassportNumber" class="form-control" name="queue_memory_pct" />
+    queue.memory_pct<input type="text" id="txtPassportNumber" class="form-control" name="queue_memory_pct" placeholder="Value in Percentage"/>
 </div>
 <div id="mqdvC" style="display: none">
-    queue.size<input type="text" id="txtPassportNumber" class="form-control" name="queue_size" />
+    queue.size<input type="text" id="txtPassportNumber" class="form-control" name="queue_size" placeholder="Value in Count"/>
+</div>
 </div>
 <div class="form-group">
 <label for="ngB">
 <input type="checkbox" id="ngB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="nginx" >NGINX<br>
 
 </label>
-</div>
+
 <div id="ngdv" style="display: none">
-   nginx.net.connections<input type="text" id="txtPassportNumber" class="form-control" name="nginx_net_connections" />
+   nginx.net.connections<input type="text" id="txtPassportNumber" class="form-control" name="nginx_net_connections" placeholder="Value in Count"/>
+</div>
 </div>
 
  </div>
@@ -280,7 +350,7 @@
 
 
  <div class="col-lg-3 col-md-3">
-                      <div class="div-trans text-center">
+                      <div class="div-trans text-center scrollbar" id="style-1">
                            <h3> DATABASE </h3>
      <div class="col-lg-12 col-md-12 col-sm-12" align = "left" display = "inline">
 <div class="form-group">
@@ -288,47 +358,50 @@
 <input type="checkbox" id="mysqB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="mysql" >MYSQL<br>
 
 </label>
-</div>
+
 <div id="mysqdv" style="display: none">
-    performance.slow_queries<input type="text" id="txtPassportNumber" class="form-control" name="performance_slow_queries" />
+    performance.slow_queries<input type="text" id="txtPassportNumber" class="form-control" name="performance_slow_queries" placeholder="Value in Count/Sec"/>
 </div>
 <div id="mysqdvA" style="display: none">
-    innodb.row_lock_time<input type="text" id="txtPassportNumber" class="form-control" name="innodb_row_lock_time" />
+    innodb.row_lock_time<input type="text" id="txtPassportNumber" class="form-control" name="innodb_row_lock_time" placeholder="Millisecond/second" />
 </div>
 <div id="mysqdvB" style="display: none">
-    innodb.row_lock_waits<input type="text" id="txtPassportNumber" class="form-control" name="innodb_row_lock_waits" />
+    innodb.row_lock_waits<input type="text" id="txtPassportNumber" class="form-control" name="innodb_row_lock_waits" placeholder="Millisecond/second"/>
+</div>
 </div>
 <div class="form-group">
 <label for="psB">
 <input type="checkbox" id="psB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="psql" >Postgre SQL<br>
 
 </label>
-</div>
+
 <div id="psdv" style="display: none">
-    postgresql.connections<input type="text" id="txtPassportNumber" class="form-control" name="postgresql_connections" />
+    postgresql.connections<input type="text" id="txtPassportNumber" class="form-control" name="postgresql_connections" placeholder="Value in Count" />
 </div>
 <div id="psdvA" style="display: none">
-    postgresql.locks<input type="text" id="txtPassportNumber" class="form-control" name="postgresql_locks" />
+    postgresql.locks<input type="text" id="txtPassportNumber" class="form-control" name="postgresql_locks" placeholder="Event/Sec" />
+</div>
 </div>
 <div class="form-group">
 <label for="monB">
 <input type="checkbox" id="monB" name="check_list" class="checkbox-inline" style="zoom:1.5" value="mongodb" >Mongo DB<br>
 
 </label>
-</div>
+
 <div id="mondv" style="display: none">
-    mongodb.connections.current<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_connections_current" />
+    mongodb.connections.current<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_connections_current" placeholder="Value in Count" />
 </div>
 <div id="mondvA" style="display: none">
-    mongodb.mem.resident<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_mem_resident" />
+    mongodb.mem.resident<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_mem_resident" placeholder="Value in mebibyte"/>
 </div>
 <div id="mondvB" style="display: none">
-    mongodb.mem.virtual<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_mem_virtual" />
+    mongodb.mem.virtual<input type="text" id="txtPassportNumber" class="form-control" name="mongodb_mem_virtual" placeholder="Value in mebibyte" />
+</div>
 </div>
 
 
 
-  <br>
+
 
 
 
@@ -340,24 +413,76 @@
                         </div>
 
                    </div>
+
+<div id="formsubmitbutton">
 <center>
-<form class="form-group">
-                                     <button type="submit" value="submit" class="btn btn-success btn-block btn-lg">SUBMIT</button>
+<form class="form-group "  align="right" float="right" >
+
+                                     <button id="submit" value="Click!" type="submit" value="submit" onclick="ButtonClicked()" class="btn btn-success btn-block btn-lg absolute"  style="position:absolute; top: 96px;left: 82%; " >SUBMIT</button><center>
+</form>
+</div>
+<div id="buttonreplacement" style="margin-left:30px; display:none;">
+<center><img src="http://www.video-force.com/wp-content/uploads/2015/10/loading.gif" height="52" width="52" alt="loading.." style="position:absolute; top: 68px;left: 48%; " ><p style ="position:absolute; top: 115px;left: 36%; "><b>Please wait while your request is processing...</b></p> </center>
+
+</div>
+</div>
 
 
 
 
-
-                        </form></center>
                 </div>
+
 
             </div>
 
         </div>
 </div>
+<div id="pre-div">
+        <div id="loader">
+
+        </div>
+ </div>
+
+
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('button[type="submit"]').attr('disabled','disabled');
+	$('input[type="text"]').keyup(function(){
+	    if($('input[type="text"]').val() == ""){
+		$('button[type="submit"]').attr('disabled','disabled');
+	    }
+	    else{
+		$('button[type="submit"]').removeAttr('disabled');
+	    }
+	})
+});
+function ButtonClicked()
+{
+
+   document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+
+   document.getElementById("buttonreplacement").style.display = ""; // to display
+   return true;
+}
+var FirstLoading = true;
+function RestoreSubmitButton()
+{
+   if( FirstLoading )
+   {
+      FirstLoading = false;
+      return;
+   }
+   document.getElementById("formsubmitbutton").style.display = ""; // to display
+
+   document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+}
+// To disable restoring submit button, disable or delete next line.
+document.onfocus = RestoreSubmitButton;
+</script>
+
 <script type="text/javascript">
     $(function () {
         $("input[name='check_list']").click(function () {
@@ -391,14 +516,12 @@ $(function () {
         $("input[name='check_list']").click(function () {
             if ($("#rdsB").is(":checked")) {
                 $("#rdsdv").show();
-
             }
 else {
                 $("#rdsdv").hide();
             }
           if ($("#rdsB").is(":checked")) {
                 $("#rdsdvA").show();
-
             } else {
                 $("#rdsdvA").hide();
             }
@@ -487,7 +610,6 @@ $(function () {
 	else {
                 $("#ngdv").hide();
             }
-
         });
     });
 $(function () {
@@ -524,7 +646,6 @@ $(function () {
 	else {
                 $("#psdvA").hide();
             }
-
         });
     });
 $(function () {
@@ -553,38 +674,10 @@ if ($("#monB").is(":checked")) {
 
 
     <!--./ HELP SECTION END -->
-    <div id="contact" >
-        <div class="container">
 
 
-            <div class="row pad-top-botm">
-                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form>
-
-                        <div class="form-group">
-                            <textarea name="Processing Script"  required="required" data-wow-delay="0.7s" class="wow rotateIn animated form-control" style="min-height: 150px;" placeholder="Processing Script"></textarea>
-                        </div>
 
 
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <!--./ CONTACT SECTION END -->
- <!--
-   <div id="footser-end">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-
-                </div>
-            </div>
-        </div>
-    </div>
-//-->
 
     <!--./ FOOTER SECTION END -->
     <!--  Jquery Core Script -->

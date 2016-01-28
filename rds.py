@@ -24,7 +24,7 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                                              rds_cpuutilization, rds_free_storage_space, alerts_list):
 
 
-    region_list = ["us-east-1","us-west-2"]
+    region_list = ["us-east-1","us-west-1","us-west-2","eu-west-1","eu-central-1","ap-southeast-1","ap-southeast-2","ap-northeast-1","ap-northeast-2","sa-east-1"]
     db_instance_class_set = set()
     for region in region_list:
         conn = Boto3Connecton.get_rds_boto3_connection(access_key, secret_key,region=region)

@@ -110,25 +110,25 @@ background-size: cover;
 
     }
     #home .head-text span {
-        display: block; 
-        font-size: 25px; 
-        color: #fff; 
+        display: block;
+        font-size: 25px;
+        color: #fff;
         margin-bottom: 25px;
     }
         #home .head-text span >i {
-             margin-right: 10px; 
+             margin-right: 10px;
              color: #159238;
         }
      #home p {
         padding:10px 20px 20px 20px;
-        color:#fff;
+        color:#000;
         font-size:16px;
         line-height:20px;
-        font-weight:800;       
+        font-weight:800;
        text-align:center;
     }
     #home .overlay {
-              background:rgba(0, 0, 0, 0);        
+              background:rgba(0, 0, 0, 0);
         min-height:700px;
     }
     #home h3 {
@@ -140,7 +140,7 @@ font-family: font-family: helvetica, arial, sans-serif;;
 padding-top: 5px;
 background-color: rgba(0, 0, 0, 0.4);
 min-height: 440px;
-margin-top: 120px;
+margin-top: 172px;
 color: #fff;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
@@ -160,8 +160,8 @@ border-radius: 5px;
 margin-bottom: 30px;
 }
         .div-trans i {
-            margin-left: 10px; 
-            margin-right: 10px; 
+            margin-left: 10px;
+            margin-right: 10px;
             color: #159238;
         }
         .div-trans span {
@@ -174,7 +174,7 @@ margin-bottom: 30px;
 #home .form-control {
 
 display:inline;
-   
+
 }
 
 
@@ -185,7 +185,7 @@ display:inline;
     =====================================================*/
 #contact {
     padding-top:80px;
-    color: #fff; 
+    color: #fff;
     background-color: #000;
 }
 
@@ -204,7 +204,7 @@ display:inline;
 
 #footser-end {
     text-align:right;
-  background-color:#242222; 
+  background-color:#242222;
    color:#fff;
    padding:10px;
 }

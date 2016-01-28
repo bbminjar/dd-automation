@@ -11,7 +11,7 @@ def get_all_input_fields_and_add_to_data_dog(customer_name, api_key, app_key, ac
                              aws_secret_access_key=str(secret_key))
 
     # Provide the AWS tag key which we did for Datadog Monitoring
-        tag1 = 'datadog'
+        tag1 = 'monitor'
         instance_type = []
         options = {
             'api_key': str(api_key),
