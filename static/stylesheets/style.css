@@ -40,7 +40,7 @@ h3{
     z-index: 10000;
 }
 #loader {
-    background-image: url("../img/loader.gif");
+    background-image: url("loader.gif");
     background-position: center center;
     background-repeat: no-repeat;
     height: 200px;
